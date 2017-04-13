@@ -1,3 +1,5 @@
+// I worked on the homework assignment alone, using only course materials.
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -10,18 +12,22 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 /**
- * An enumeration of the different types of pokemon
- */
+  * An enumeration for the different types of Pokemon
+  *
+  * @author iwebb6 and CS 1331 Homework Team
+  * @version 1.0
+  */
 public enum Type {
     FIRE, DRAGON, FIGHTING, FAIRY, WATER, DARK, BUG, GRASS, POISON,
     ELECTRIC, PSYCHIC, GHOST;
 
     /**
-     * Creates a view fo the Type as a colored and labeled box
-     *
-     * @return an HBox view of the Type
-     */
+      * Creates a view fo the Type as a colored and labeled box
+      *
+      * @return an HBox view of the Type
+      */
     public HBox getTypeView() {
+        // Set the background color based on the Type
         Color color = null;
         switch (this) {
         case FIRE:
@@ -52,15 +58,18 @@ public enum Type {
             color = Color.MAGENTA;
             break;
         }
+        // Create an HBox to hold the label
         HBox view = new HBox();
         view.setAlignment(Pos.CENTER);
         view.setPadding(new Insets(5));
 
+        // Create the label, add it to the HBox, and set the background color
         Label type = new Label(this.toString());
         type.setFont(Font.font("Monospace", FontWeight.BLACK, 12));
         view.getChildren().add(type);
-        view.setBackground(new Background(new BackgroundFill(color,
-            new CornerRadii(0.5), null)));
+        view.setBackground(
+            new Background(new BackgroundFill(color, new CornerRadii(0.5),
+                                              null)));
 
         return view;
     }
